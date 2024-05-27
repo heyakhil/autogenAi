@@ -1,0 +1,10 @@
+
+.slideimg{
+    width: 300px;
+    height: 400px;
+  }
+  
+  .slidecontainer {
+    margin: 40px auto !important;
+    width: 80%; 
+  }

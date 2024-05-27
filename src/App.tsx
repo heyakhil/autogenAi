@@ -10,6 +10,7 @@ import { useState } from "react";
 import Elevate from '../public/Elevate-2.png';
 import Edit from '../public/Edit-2.png';
 import Draft from '../public/Draft-2.png';
+import LinearSlider from "./component/LinearSlider";
 
 function App() {
   const [mounted, setMounted] = useState(false);
@@ -270,7 +271,7 @@ function App() {
         <hr />
         <p className="max-text">Our Language Engines are making our clients’ bid-writing teams up to 85% more efficient, allowing them to get to draft in minutes rather than days and boosting their win rates by up to 241%. But don’t just take our word for it, see what our customers are saying.</p>
         <div className="row">
-            
+            <LinearSlider />
         </div>
     </div>
 </div>
