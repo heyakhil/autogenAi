@@ -1,0 +1,39 @@
+@font-face {
+  font-family: IBMPlexSans-Bold;
+  src: url(../fonts/IBMPlexSans-Bold.ttf);
+}
+@font-face {
+  font-family: IBMPlexSans-Light;
+  src: url(../fonts/IBMPlexSans-Light.ttf);
+}
+@font-face {
+  font-family: IBMPlexSans-Medium;
+  src: url(../fonts/IBMPlexSans-Medium.ttf);
+}
+@font-face {
+  font-family: IBMPlexSans-Thin;
+  src: url(../fonts/IBMPlexSans-Thin.ttf);
+}
+@font-face {
+  font-family: IBMPlexSans-Regular;
+  src: url(../fonts/IBMPlexSans-Regular.ttf);
+}
+
+.bannerarea {
+  margin: 0px 10%;
+  padding-top: 50px;
+}
+
+.slideimg{
+  width: 120px;
+  height: 50px;
+}
+
+.slidecontainer {
+  margin: 40px auto !important;
+  width: 80%; 
+}
+
+.container {
+
+}
