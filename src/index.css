@@ -38,6 +38,12 @@ body {
   font-size: 16px;
 }
 
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+      max-width: 1280px;
+  }
+}
+
 h1 {
   font-size: 2.7rem;
   line-height: 1.1;
@@ -59,6 +65,10 @@ h3 {
   color:#fff;
   font-weight: 700;
 }
+h4 {
+  color: #fff;
+  font-size: 1.3rem;
+}
 hr {
   width: 40px;
   height: 3px;
@@ -66,6 +76,12 @@ hr {
   border: 0px;
   opacity: 1;
   margin: 25px 0px ;
+}
+h6 {
+  color: #fff;
+  font-weight: 300;
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
 p{
   color:#b9b9b9;
@@ -121,9 +137,10 @@ button:focus-visible {
 
 .bid-write{
   padding: 70px 0px;
+  background-color: #1f1f1f;
 }
 
-.bid-write .row {
+.bid-write .row ,.key-feature .row{
   max-width: 965px;
   margin: 0 auto;
   align-items: center;
@@ -144,4 +161,116 @@ button:focus-visible {
   padding: 0px 22px;
 }
 
+.ingredients{
+  padding: 70px 0px;
+  text-align: center;
+}
 
+.ingredients hr{
+  width: 40px !important;
+  margin: 25px auto;
+}
+.tabBox {
+  margin-top: 80px;
+}
+
+
+
+.tabBox .btn.btn-danger {
+  background-color: #707070;
+  border: 0px;
+  padding: 11px 15px;
+  border-radius: 100px;
+  width: 100%;
+  font-weight: 700;
+  font-size: 1.rem;
+}
+.tab-content {
+  padding: 112px 20px 200px;
+  background-image: url(/public/background-pattren.png);
+  background-size: cover;
+  background-position: top;
+  margin-top: -23px;
+  position: relative;
+  border-radius: 15px;
+}
+.tab-content::before {
+  content: "";
+  background-color: #000000c7;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 20px;
+}
+.row.upperBtns {
+  position: relative;
+  padding: 0px 20px;
+  z-index: 1;
+}
+.max-content{
+  max-width: 60rem;
+  margin: 0px auto;
+  position: relative;
+}
+.ingredients .tabBox h2{
+  margin-bottom: 30px;
+}
+
+.key-feature {
+  text-align: center;
+}
+.key-feature hr{
+  margin: 25px auto;
+}
+.key-feature .row{
+  text-align: left;
+  padding: 60px 0px;
+}
+.key-feature .row hr{
+  margin: 25px 0px;
+}
+h2.big {
+  font-size: 3.1rem;
+}
+h3.big {
+  font-size: 2.2rem;
+  line-height: 2.8rem;
+  margin-bottom: 40px;
+}
+.innerbox {
+  margin-bottom: 40px;
+}
+
+.tesimonial {
+  background-color: #272727;
+  padding: 70px;
+  text-align: center;
+}
+.tesimonial hr,.commitment-sec hr,.featured hr{
+   margin:27px auto;
+}
+.max-text{
+  max-width: 641px;
+  margin: 0 auto;
+}
+.commitment-sec,.featured{
+  padding: 70px 0px;
+  text-align: center;
+  background-color:#1f1f1f;
+}
+
+.formbox{
+  text-align: center;
+  padding: 70px 0px;
+}
+.news {
+  padding: 70px 0px;
+  text-align: center;
+  background-color: #1f1f1f;
+}
+.news hr{
+  margin: 25px auto;
+}
