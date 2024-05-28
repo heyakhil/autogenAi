@@ -335,7 +335,6 @@ h5{
 .logoOuter {
     justify-content: space-between;
     margin-top: 55px;
-    display: flex;
 }
 .logoBox::before {
   content: "";
@@ -347,22 +346,4 @@ h5{
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-}
-
-@media (max-width: 767px) {
- 
-  .logoOuter{
-      display: block;
-  }
-  .logoBox {
-    width: 100%;
-    margin-bottom: 35px;
-}
-.logoBox::before{
-  background-color: transparent;
-}
-h1 {
-  font-size: 2.3rem;
-}
-
 }
