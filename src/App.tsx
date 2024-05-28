@@ -12,6 +12,7 @@ import Edit from "../public/Edit-2.png";
 import Draft from "../public/Draft-2.png";
 import LinearSlider from "./component/LinearSlider";
 import useScrollPercentage from "./hooks/useScrollPercentage";
+import News from '../public/shutterstock_2307916095-768x409.jpg';
 
 function App() {
   const [mounted, setMounted] = useState(false);
@@ -167,7 +168,7 @@ function App() {
         </Container>
       </div>
       <div className="ingredients">
-        <div className="container">
+        <div className="container  max-container">
           <div className="row">
             <Transition
               mounted={scrollPercentage > 14}
@@ -420,22 +421,55 @@ function App() {
             WRITTEN IN COLLABORATION WITH AUTOGENAI’S GENERAL LANGUAGE ENGINE 1
           </p>
 
-          <div className="row">
+        <div className="row mt-4">
             <div className="col-md-4">
-              <div className="box">
-                <img
-                  src="images/the-times-logo-white-p4ze56iubvr4oz3chtk85wy1thv28udldclwb80xz4.png"
-                  alt=""
-                />
-                <small>26TH MAY, 2024</small>
-                <hr />
-                <button className="btn btn-info">View Article</button>
-              </div>
+                <div className="newsBox">
+                    <div className="news-circle">
+                      <img src={News} className="w-100" alt="logo" />
+                    </div> 
+                    <h6>26TH MAY, 2024</h6>
+                    <hr />
+                    <h3>UK General Election 2024: What is purdah, when does it start and how will it impact your business?</h3>
+                    <button className="btn btn-info">View Article</button>
+                </div>
+            </div>
+            <div className="col-md-4">
+                <div className="newsBox">
+                    <div className="news-circle">
+                      <img src={News} className="w-100" alt="logo" />
+                    </div> 
+                    <h6>26TH MAY, 2024</h6>
+                    <hr />
+                    <h3>UK General Election 2024: What is purdah, when does it start and how will it impact your business?</h3>
+                    <button className="btn btn-info">View Article</button>
+                </div>
+            </div>
+            <div className="col-md-4">
+                <div className="newsBox">
+                    <div className="news-circle">
+                      <img src={News} className="w-100" alt="logo" />
+                    </div> 
+                    <h6>26TH MAY, 2024</h6>
+                    <hr />
+                    <h3>UK General Election 2024: What is purdah, when does it start and how will it impact your business?</h3>
+                    <button className="btn btn-info">View Article</button>
+                </div>
             </div>
           </div>
         </div>
       </div>
+
+      <footer>
+        <div className="container">
+            <div className="row">
+                      
+            </div>
+        </div>
+      </footer>
+      
     </div>
+
+
   );
 }
 

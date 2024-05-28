@@ -19,6 +19,15 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'IBMPlexSans-Regular';
+  src: url('./fonts/IBMPlexSans-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+body{
+  font-family: 'IBMPlexSans-Regular';
+}
 
 a {
   font-weight: 500;
@@ -39,7 +48,7 @@ body {
 }
 
 @media (min-width: 1200px) {
-  .container, .container-lg, .container-md, .container-sm, .container-xl {
+  .container.max-container{
       max-width: 1280px;
   }
 }
@@ -125,7 +134,7 @@ button:focus-visible {
 
 
 .banner-area{
-  padding: 70px 0px;
+  padding: 70px 20px;
 }
 
 .trust-sec{
@@ -136,7 +145,7 @@ button:focus-visible {
 }
 
 .bid-write{
-  padding: 70px 0px;
+  padding: 70px 20px;
   background-color: #1f1f1f;
 }
 
@@ -162,7 +171,7 @@ button:focus-visible {
 }
 
 .ingredients{
-  padding: 70px 0px;
+  padding: 70px 20px;
   text-align: center;
 }
 
@@ -184,6 +193,7 @@ button:focus-visible {
   width: 100%;
   font-weight: 700;
   font-size: 1.rem;
+  margin-bottom: 15px;
 }
 .tab-content {
   padding: 112px 20px 200px;
@@ -246,7 +256,7 @@ h3.big {
 
 .tesimonial {
   background-color: #272727;
-  padding: 70px;
+  padding: 70px 20px;
   text-align: center;
 }
 .tesimonial hr,.commitment-sec hr,.featured hr{
@@ -257,20 +267,39 @@ h3.big {
   margin: 0 auto;
 }
 .commitment-sec,.featured{
-  padding: 70px 0px;
+  padding: 70px 20px;
   text-align: center;
   background-color:#1f1f1f;
 }
 
 .formbox{
   text-align: center;
-  padding: 70px 0px;
+  padding: 70px 20px;
 }
 .news {
-  padding: 70px 0px;
+  padding: 70px 20px;
   text-align: center;
   background-color: #1f1f1f;
 }
 .news hr{
   margin: 25px auto;
+}
+
+.news-circle img {
+  height: 100%;
+}
+
+.newsBox {
+  text-align: left;
+  margin-bottom: 30px;
+}
+.news-circle {
+  width: 110px;
+  height: 100px;
+  border-radius: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.newsBox hr{
+  margin: 25px 0px;
 }
