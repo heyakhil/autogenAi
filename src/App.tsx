@@ -1,5 +1,12 @@
 import classes from "./App.module.css";
-import { Container, Transition } from "@mantine/core";
+import {
+  Container,
+  Transition,
+  Menu,
+  Group,
+  Center,
+  Burger,
+} from "@mantine/core";
 import Slider from "react-slick";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -7,17 +14,87 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
 
+import { useDisclosure } from "@mantine/hooks";
+import { IconChevronDown } from "@tabler/icons-react";
+
 import Elevate from "../public/Elevate-2.png";
 import Edit from "../public/Edit-2.png";
 import Draft from "../public/Draft-2.png";
 import LinearSlider from "./component/LinearSlider";
 import useScrollPercentage from "./hooks/useScrollPercentage";
-import News from '../public/shutterstock_2307916095-768x409.jpg';
+import News from "../public/shutterstock_2307916095-768x409.jpg";
+
+const links = [
+  { link: "/about", label: "Features" },
+  {
+    link: "#1",
+    label: "Learn",
+    links: [
+      { link: "/docs", label: "Documentation" },
+      { link: "/resources", label: "Resources" },
+      { link: "/community", label: "Community" },
+      { link: "/blog", label: "Blog" },
+    ],
+  },
+  { link: "/about", label: "About" },
+  { link: "/pricing", label: "Pricing" },
+  {
+    link: "#2",
+    label: "Support",
+    links: [
+      { link: "/faq", label: "FAQ" },
+      { link: "/demo", label: "Book a demo" },
+      { link: "/forums", label: "Forums" },
+    ],
+  },
+];
 
 function App() {
   const [mounted, setMounted] = useState(false);
+  const [opened, { toggle }] = useDisclosure(false);
 
   const [ref, scrollPercentage] = useScrollPercentage();
+
+  const items = links.map((link) => {
+    const menuItems = link.links?.map((item) => (
+      <Menu.Item key={item.link}>{item.label}</Menu.Item>
+    ));
+
+    if (menuItems) {
+      return (
+        <Menu
+          key={link.label}
+          trigger="hover"
+          transitionProps={{ exitDuration: 0 }}
+          withinPortal
+        >
+          <Menu.Target>
+            <a
+              href={link.link}
+              className={classes.link}
+              onClick={(event) => event.preventDefault()}
+            >
+              <Center>
+                <span className={classes.linkLabel}>{link.label}</span>
+                <IconChevronDown size="0.9rem" stroke={1.5} />
+              </Center>
+            </a>
+          </Menu.Target>
+          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
+        </Menu>
+      );
+    }
+    return (
+      <a
+        key={link.label}
+        href={link.link}
+        className={classes.link}
+        onClick={(event) => event.preventDefault()}
+      >
+        {link.label}
+      </a>
+    );
+  });
 
   const settings = {
     dots: false,
@@ -39,6 +116,22 @@ function App() {
 
   return (
     <div ref={ref}>
+      <header className={classes.header}>
+        <Container size="md">
+          <div className={classes.inner}>
+            <p>Logo Here</p>
+            <Group gap={5} visibleFrom="sm">
+              {items}
+            </Group>
+            <Burger
+              opened={opened}
+              onClick={toggle}
+              size="sm"
+              hiddenFrom="sm"
+            />
+          </div>
+        </Container>
+      </header>
       <div className={classes.bannerarea}>
         <Container mx={200} className={classes.container}>
           <div className="row gap-3">
@@ -421,39 +514,48 @@ function App() {
             WRITTEN IN COLLABORATION WITH AUTOGENAI’S GENERAL LANGUAGE ENGINE 1
           </p>
 
-        <div className="row mt-4">
+          <div className="row mt-4">
             <div className="col-md-4">
-                <div className="newsBox">
-                    <div className="news-circle">
-                      <img src={News} className="w-100" alt="logo" />
-                    </div> 
-                    <h6>26TH MAY, 2024</h6>
-                    <hr />
-                    <h3>UK General Election 2024: What is purdah, when does it start and how will it impact your business?</h3>
-                    <button className="btn btn-info">View Article</button>
+              <div className="newsBox">
+                <div className="news-circle">
+                  <img src={News} className="w-100" alt="logo" />
                 </div>
+                <h6>26TH MAY, 2024</h6>
+                <hr />
+                <h3>
+                  UK General Election 2024: What is purdah, when does it start
+                  and how will it impact your business?
+                </h3>
+                <button className="btn btn-info">View Article</button>
+              </div>
             </div>
             <div className="col-md-4">
-                <div className="newsBox">
-                    <div className="news-circle">
-                      <img src={News} className="w-100" alt="logo" />
-                    </div> 
-                    <h6>26TH MAY, 2024</h6>
-                    <hr />
-                    <h3>UK General Election 2024: What is purdah, when does it start and how will it impact your business?</h3>
-                    <button className="btn btn-info">View Article</button>
+              <div className="newsBox">
+                <div className="news-circle">
+                  <img src={News} className="w-100" alt="logo" />
                 </div>
+                <h6>26TH MAY, 2024</h6>
+                <hr />
+                <h3>
+                  UK General Election 2024: What is purdah, when does it start
+                  and how will it impact your business?
+                </h3>
+                <button className="btn btn-info">View Article</button>
+              </div>
             </div>
             <div className="col-md-4">
-                <div className="newsBox">
-                    <div className="news-circle">
-                      <img src={News} className="w-100" alt="logo" />
-                    </div> 
-                    <h6>26TH MAY, 2024</h6>
-                    <hr />
-                    <h3>UK General Election 2024: What is purdah, when does it start and how will it impact your business?</h3>
-                    <button className="btn btn-info">View Article</button>
+              <div className="newsBox">
+                <div className="news-circle">
+                  <img src={News} className="w-100" alt="logo" />
                 </div>
+                <h6>26TH MAY, 2024</h6>
+                <hr />
+                <h3>
+                  UK General Election 2024: What is purdah, when does it start
+                  and how will it impact your business?
+                </h3>
+                <button className="btn btn-info">View Article</button>
+              </div>
             </div>
           </div>
         </div>
@@ -461,15 +563,10 @@ function App() {
 
       <footer>
         <div className="container">
-            <div className="row">
-                      
-            </div>
+          <div className="row"></div>
         </div>
       </footer>
-      
     </div>
-
-
   );
 }
 

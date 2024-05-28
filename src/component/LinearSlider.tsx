@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+
 import Slider from "react-slick";
 import classes from "./styles.module.css";
 import { SlArrowRight, SlArrowLeft  } from "react-icons/sl";
+import React from "react";
 
 const LinearSlider = () => {
 
-    const [activeDot, setActiveDot] = useState(1)
+    const [activeDot, setActiveDot] = React.useState(1)
 
   const settings = {
     dots: true,
@@ -28,7 +29,7 @@ const LinearSlider = () => {
            {dots} 
         </div>
       ),
-    beforeChange: (prev:any, next:any) => {
+    beforeChange: (next:any) => {
         setActiveDot(next)
       },
     customPaging: (i:any) => (
