@@ -258,7 +258,7 @@ h3.big {
   padding: 70px 20px;
   text-align: center;
 }
-.tesimonial hr,.commitment-sec hr,.featured hr{
+.tesimonial hr,.commitment-sec hr,.featured hr, .formbox hr{
    margin:27px auto;
 }
 .max-text{
@@ -366,3 +366,41 @@ h1 {
 }
 
 }
+
+ul.navbar-nav {
+  justify-content: center;
+  align-items: center;
+}
+
+a.nav-link {
+  color: #fff;
+  font-weight: 600;
+  padding: 6px 31px !important;
+}
+
+nav.navbar {
+  padding: 36px 0px;
+}
+nav.navbar .btn-info {
+  margin-top: 0px;
+  padding: 10px 35px;
+}
+
+li.nav-item {
+  position: relative;
+}
+
+@media screen and (min-width: 992px) {
+    .navbar-nav > .nav-item::before {
+        content: "";
+        display: block;
+        width: 0.063rem;
+        height: .75rem;
+        background: #fff;
+        position: absolute;
+        left: 0.063rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .navbar-nav > .nav-item:last-child::before{
+      background-color: transparent;}}

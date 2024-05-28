@@ -20,7 +20,7 @@
 }
 
 .bannerarea {
-  margin: 0px 10%;
+  margin: 0px 8%;
   padding-top: 70px;
   padding-bottom: 70px;
 }
@@ -34,6 +34,8 @@
   margin: 40px auto !important;
   width: 80%; 
 }
+
+/* Start of header styling */
 
 .header {
   height: rem(56px);
@@ -62,11 +64,14 @@
   @mixin hover {
     background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-6));
   }
+
+  [data-mantine-color-scheme] &[data-active] {
+    background-color: var(--mantine-color-blue-filled);
+    color: var(--mantine-color-white);
+  }
 }
 
-.linkLabel {
-  margin-right: rem(5px);
-}
+/* End of header styling */
 
 .container {
 
@@ -106,3 +111,16 @@ footer li a{
     margin-bottom: 0px;
 }
 
+.inputFiled {
+  background: transparent;
+}
+
+.privacyLink a {
+  /* text-decoration: none; */
+  color: #eeee;
+  margin: 0px auto;
+}
+
+.privacyLink a:hover {
+  color: #eee;
+}

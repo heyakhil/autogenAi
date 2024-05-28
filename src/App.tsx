@@ -2,20 +2,15 @@ import classes from "./App.module.css";
 import {
   Container,
   Transition,
-  Menu,
-  Group,
-  Center,
-  Burger,
+
 } from "@mantine/core";
 import Slider from "react-slick";
-
+import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useEffect, useState } from "react";
 
-import { useDisclosure } from "@mantine/hooks";
-import { IconChevronDown } from "@tabler/icons-react";
 
 import Elevate from "../public/Elevate-2.png";
 import Edit from "../public/Edit-2.png";
@@ -23,82 +18,17 @@ import Draft from "../public/Draft-2.png";
 import LinearSlider from "./component/LinearSlider";
 import useScrollPercentage from "./hooks/useScrollPercentage";
 import News from "../public/shutterstock_2307916095-768x409.jpg";
-import BBC from '../public/BBC_white_logo.png';
-import CNBC from '../public/cnbc.png';
-import BLOOM from '../public/bloomberg.png';
-import TIMES from '../public/the-times.png';
+import BBC from "../public/BBC_white_logo.png";
+import CNBC from "../public/cnbc.png";
+import BLOOM from "../public/bloomberg.png";
+import TIMES from "../public/the-times.png";
+import RTextInput from "./component/RTextInput";
 
-const links = [
-  { link: "/about", label: "Features" },
-  {
-    link: "#1",
-    label: "Learn",
-    links: [
-      { link: "/docs", label: "Documentation" },
-      { link: "/resources", label: "Resources" },
-      { link: "/community", label: "Community" },
-      { link: "/blog", label: "Blog" },
-    ],
-  },
-  { link: "/about", label: "About" },
-  { link: "/pricing", label: "Pricing" },
-  {
-    link: "#2",
-    label: "Support",
-    links: [
-      { link: "/faq", label: "FAQ" },
-      { link: "/demo", label: "Book a demo" },
-      { link: "/forums", label: "Forums" },
-    ],
-  },
-];
 
 function App() {
   const [mounted, setMounted] = useState(false);
-  const [opened, { toggle }] = useDisclosure(false);
 
   const [ref, scrollPercentage] = useScrollPercentage();
-
-  const items = links.map((link) => {
-    const menuItems = link.links?.map((item) => (
-      <Menu.Item key={item.link}>{item.label}</Menu.Item>
-    ));
-
-    if (menuItems) {
-      return (
-        <Menu
-          key={link.label}
-          trigger="hover"
-          transitionProps={{ exitDuration: 0 }}
-          withinPortal
-        >
-          <Menu.Target>
-            <a
-              href={link.link}
-              className={classes.link}
-              onClick={(event) => event.preventDefault()}
-            >
-              <Center>
-                <span className={classes.linkLabel}>{link.label}</span>
-                <IconChevronDown size="0.9rem" stroke={1.5} />
-              </Center>
-            </a>
-          </Menu.Target>
-          <Menu.Dropdown>{menuItems}</Menu.Dropdown>
-        </Menu>
-      );
-    }
-    return (
-      <a
-        key={link.label}
-        href={link.link}
-        className={classes.link}
-        onClick={(event) => event.preventDefault()}
-      >
-        {link.label}
-      </a>
-    );
-  });
 
   const settings = {
     dots: false,
@@ -121,20 +51,57 @@ function App() {
   return (
     <div ref={ref}>
       <header className={classes.header}>
-        <Container size="md">
-          <div className={classes.inner}>
-            <p>Logo Here</p>
-            <Group gap={5} visibleFrom="sm">
-              {items}
-            </Group>
-            <Burger
-              opened={opened}
-              onClick={toggle}
-              size="sm"
-              hiddenFrom="sm"
-            />
+        <nav className="navbar navbar-expand-lg navbar-dark ">
+          <div className="container">
+            <a className="navbar-brand" href="#">
+              <img src="logo.png" style={{width:'200px', height:'40px'}} />
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    SECURITY
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    ABOUT US
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    ARTICLES
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">
+                    CAREERS
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <button className="btn btn-info" onClick={() => console.log('[aspd')}>
+                    Contact
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
-        </Container>
+        </nav>
+              
       </header>
       <div className={classes.bannerarea}>
         <Container mx={200} className={classes.container}>
@@ -240,22 +207,18 @@ function App() {
             <div className="col-md-4">
               <div className="grid">
                 <div className="box">
-                     
                   <h3>70% Increase</h3>
                   <p>In Drafting Speed</p>
                 </div>
                 <div className="box">
-                    
                   <h3>70% Increase</h3>
                   <p>In Drafting Speed</p>
                 </div>
                 <div className="box">
-                  
                   <h3>70% Increase</h3>
                   <p>In Drafting Speed</p>
                 </div>
                 <div className="box">
-                    
                   <h3>70% Increase</h3>
                   <p>In Drafting Speed</p>
                 </div>
@@ -496,26 +459,21 @@ function App() {
           <h2>As featured in</h2>
           <hr />
           <div className="logoOuter">
-            
-                <div className="logoBox">
-                    <img src={BBC} className="w-100" alt="Draft" />
-                </div>
-            
-            
-                <div className="logoBox">
-                    <img src={CNBC} className="w-100" alt="Draft" />
-                </div>
-            
-            
-                <div className="logoBox">
-                    <img src={TIMES} className="w-100" alt="Draft" />
-                </div>
-          
-            
-                <div className="logoBox">
-                    <img src={BLOOM} className="w-100" alt="Draft" />
-                </div>
-           
+            <div className="logoBox">
+              <img src={BBC} className="w-100" alt="Draft" />
+            </div>
+
+            <div className="logoBox">
+              <img src={CNBC} className="w-100" alt="Draft" />
+            </div>
+
+            <div className="logoBox">
+              <img src={TIMES} className="w-100" alt="Draft" />
+            </div>
+
+            <div className="logoBox">
+              <img src={BLOOM} className="w-100" alt="Draft" />
+            </div>
           </div>
         </div>
       </div>
@@ -524,6 +482,36 @@ function App() {
         <div className="container">
           <h6>INTERESTED?</h6>
           <h2>BOOK YOUR DEMO TODAY</h2>
+          <hr />
+          <div className="row justify-content-center gap-1 mb-4">
+            <div className="col-md-3">
+              <RTextInput />
+            </div>
+            <div className="col-md-3">
+              <RTextInput />
+            </div>
+          </div>
+          <div className="row justify-content-center gap-1 mb-4">
+            <div className="col-md-3">
+              <RTextInput />
+            </div>
+            <div className="col-md-3">
+              <RTextInput />
+            </div>
+          </div>
+          <div className="row justify-content-center">
+            <div className="col-md-6">
+              <RTextInput />
+            </div>
+          </div>
+          <p className="mx-auto mt-4 w-50">
+            We will use your details to book your demo and keep you up to date
+            with AutogenAI services. For more details, please see our{" "}
+            <span className={classes.privacyLink}>
+              <a href="#">Privacy Notice</a>
+            </span>
+          </p>
+          <button className="btn btn-info">Submit</button>
         </div>
       </div>
 
@@ -535,81 +523,118 @@ function App() {
             WRITTEN IN COLLABORATION WITH AUTOGENAI’S GENERAL LANGUAGE ENGINE 1
           </p>
 
-        <div className="row newsOuter">
-            
-                <div className="newsBox">
-                    <div className="news-circle">
-                      <img src={News} className="w-100" alt="logo" />
-                    </div> 
-                    <h6>26TH MAY, 2024</h6>
-                    <hr />
-                    <h3>UK General Election 2024: What is purdah, when does it start and how will it impact your business?</h3>
-                    <button className="btn btn-info">View Article</button>
-                </div>
-            
-            
-                <div className="newsBox">
-                    <div className="news-circle">
-                      <img src={News} className="w-100" alt="logo" />
-                    </div> 
-                    <h6>26TH MAY, 2024</h6>
-                    <hr />
-                    <h3>UK General Election 2024: What is purdah, when does it start and how will it impact your business?</h3>
-                    <button className="btn btn-info">View Article</button>
-                </div>
-            
-            
-                <div className="newsBox">
-                    <div className="news-circle">
-                      <img src={News} className="w-100" alt="logo" />
-                    </div> 
-                    <h6>26TH MAY, 2024</h6>
-                    <hr />
-                    <h3>UK General Election 2024: What is purdah, when does it start and how will it impact your business?</h3>
-                    <button className="btn btn-info">View Article</button>
-                </div>
-            
+          <div className="row newsOuter">
+            <div className="newsBox">
+              <div className="news-circle">
+                <img src={News} className="w-100" alt="logo" />
+              </div>
+              <h6>26TH MAY, 2024</h6>
+              <hr />
+              <h3>
+                UK General Election 2024: What is purdah, when does it start and
+                how will it impact your business?
+              </h3>
+              <button className="btn btn-info">View Article</button>
+            </div>
+
+            <div className="newsBox">
+              <div className="news-circle">
+                <img src={News} className="w-100" alt="logo" />
+              </div>
+              <h6>26TH MAY, 2024</h6>
+              <hr />
+              <h3>
+                UK General Election 2024: What is purdah, when does it start and
+                how will it impact your business?
+              </h3>
+              <button className="btn btn-info">View Article</button>
+            </div>
+
+            <div className="newsBox">
+              <div className="news-circle">
+                <img src={News} className="w-100" alt="logo" />
+              </div>
+              <h6>26TH MAY, 2024</h6>
+              <hr />
+              <h3>
+                UK General Election 2024: What is purdah, when does it start and
+                how will it impact your business?
+              </h3>
+              <button className="btn btn-info">View Article</button>
+            </div>
           </div>
         </div>
       </div>
 
       <footer>
         <div className="container">
-            <div className="row">
-                 <div className="col-md-2">
-                    <h5>Content</h5>
-                    <ul>
-                      <li><a>Articles</a></li>
-                      <li><a>Security</a></li>
-                      <li><a>About Us</a></li>
-                      <li><a>Careers</a></li>
-                    </ul>
-                 </div> 
-                 <div className="col-md-8">
-                    <h5>Legal</h5>
-                    <ul>
-                      <li><a>Privacy Policy</a></li>
-                      <li><a>Usage Policy</a></li>
-                      <li><a>Cookie Policy</a></li>
-                      <li><a>Application Cookie Policy</a></li>
-                      <li><a>Customer T&Cs</a></li>
-                      <li><a>Application T&Cs</a></li>
-                    </ul>
-                 </div>  
-                 <div className="col-md-2">
-
-                </div>   
+          <div className="row">
+            <div className="col-md-2">
+              <h5>Content</h5>
+              <ul>
+                <li>
+                  <a>Articles</a>
+                </li>
+                <li>
+                  <a>Security</a>
+                </li>
+                <li>
+                  <a>About Us</a>
+                </li>
+                <li>
+                  <a>Careers</a>
+                </li>
+              </ul>
             </div>
-            <div className="row mt-4 pt-4 bottomBar">
-                <div className="col-md-8 p-0">
-                    <p>© Copyright 2024 AutogenAI. All rights reserved. Company number 13907128</p>
-                     <p> All text on this site was co-created using AutogenAI’s General Language Engine 1 (Genny-1).</p>
-                     <p> All AI-generated text has been reviewed, approved and verified by humans.</p>
-                </div>
-                <div className="col-md-4 text-end">
-                  <p>Registered office address 5th Floor, 123 Pentonville Road, N1 9LG</p>
-                </div>
+            <div className="col-md-8">
+              <h5>Legal</h5>
+              <ul>
+                <li>
+                  <a>Privacy Policy</a>
+                </li>
+                <li>
+                  <a>Usage Policy</a>
+                </li>
+                <li>
+                  <a>Cookie Policy</a>
+                </li>
+                <li>
+                  <a>Application Cookie Policy</a>
+                </li>
+                <li>
+                  <a>Customer T&Cs</a>
+                </li>
+                <li>
+                  <a>Application T&Cs</a>
+                </li>
+              </ul>
             </div>
+            <div className="col-md-2"></div>
+          </div>
+          <div className="row mt-4 pt-4 bottomBar">
+            <div className="col-md-8 p-0">
+              <p>
+                © Copyright 2024 AutogenAI. All rights reserved. Company number
+                13907128
+              </p>
+              <p>
+                {" "}
+                All text on this site was co-created using AutogenAI’s General
+                Language Engine 1 (Genny-1).
+              </p>
+              <p>
+                {" "}
+                All AI-generated text has been reviewed, approved and verified
+                by humans.
+              </p>
+            </div>
+            <div className="col-md-4 text-end">
+              <p>
+                Registered office address 5th Floor, 123 Pentonville Road, N1
+                9LG
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>
